@@ -27,18 +27,24 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         //设置为前台服务
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-                notificationIntent, 0);
-        Notification notification = new Notification.Builder(getApplicationContext())
-                .setAutoCancel(true)
-                .setContentTitle("title")
-                .setContentText("describe")
-                .setContentIntent(pendingIntent)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setWhen(System.currentTimeMillis())
-                .build();
-        startForeground(1, notification);
+//        Intent notificationIntent = new Intent(this, MainActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+//                notificationIntent, 0);
+//        Notification notification = new Notification.Builder(getApplicationContext())
+//                .setAutoCancel(true)
+//                .setContentTitle("title")
+//                .setContentText("describe")
+//                .setContentIntent(pendingIntent)
+//                .setSmallIcon(R.mipmap.ic_launcher)
+//                .setWhen(System.currentTimeMillis())
+//                .build();
+//        startForeground(1, notification);
+
+        try {
+            Thread.sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         Log.d(TAG, "onCreate() executed");
     }
 

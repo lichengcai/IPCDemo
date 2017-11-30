@@ -16,7 +16,14 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.MyService"/>
+        <service
+            android:name=".service.MyService"/>
+
+        <service
+            android:process=":remote"
+            android:exported= "true"
+            android:name="cc.ipcdemo.service.IRemoteService"/>
+
     </application>
 
 </manifest>
