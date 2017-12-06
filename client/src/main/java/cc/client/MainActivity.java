@@ -24,6 +24,17 @@ public class MainActivity extends AppCompatActivity {
     Button btn_res,btn_person;
     private IMyAidl iImoocAidl;
 
+    /**
+     * DeathRecipient 是一个接口，内部只有一个方法 binderDied,当 Binder 死亡时，系统会回调 binderDied
+     * 方法。
+     */
+    private IBinder.DeathRecipient deathRecipient = new IBinder.DeathRecipient() {
+        @Override
+        public void binderDied() {
+
+        }
+    };
+
     private ServiceConnection conn = new ServiceConnection() {
 
         //绑定上服务的时候
@@ -33,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
             //拿到了远程的服务
             iImoocAidl = IMyAidl.Stub.asInterface(service);
 //            iImoocAidl = (IImoocAidl) service;
+            try {
+                service.linkToDeath(deathRecipient,0);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
 
         //断开服务的时候
@@ -90,7 +106,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
+
 
 
     @Override
