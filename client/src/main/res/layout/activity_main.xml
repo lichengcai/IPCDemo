@@ -39,4 +39,11 @@
         android:layout_width="match_parent"
         android:id="@+id/btn_res"
         android:layout_height="wrap_content" />
+
+
+   <Button
+       android:id="@+id/btn_person"
+       android:text="获取集合"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content" />
 </LinearLayout>

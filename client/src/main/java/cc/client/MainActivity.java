@@ -13,12 +13,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+
+import cc.aidlservice.Person;
 import cc.aidlservice.IMyAidl;
 
 public class MainActivity extends AppCompatActivity {
     private static final String  TAG = "client";
     EditText edit1,edit2,edit_res;
-    Button btn_res;
+    Button btn_res,btn_person;
     private IMyAidl iImoocAidl;
 
     private ServiceConnection conn = new ServiceConnection() {
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         edit2 = (EditText) findViewById(R.id.edit2);
         edit_res = (EditText) findViewById(R.id.edit_res);
         btn_res = (Button) findViewById(R.id.btn_res);
+        btn_person = (Button) findViewById(R.id.btn_person);
 
         //软件启动就绑定
         Intent bindIntent = new Intent();
@@ -69,6 +73,19 @@ public class MainActivity extends AppCompatActivity {
                 } catch (RemoteException e) {
                     e.printStackTrace();
                     edit_res.setText("计算错误");
+                }
+            }
+        });
+
+        btn_person.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    ArrayList<Person> persons = (ArrayList<Person>) iImoocAidl.addPerson(new Person("ABC",21));
+
+                    Log.d("Persons",persons.toString());
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             }
         });

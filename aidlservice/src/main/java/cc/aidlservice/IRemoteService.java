@@ -17,7 +17,7 @@ import java.util.List;
  * Time: 11:41
  */
 public class IRemoteService extends Service {
-
+    private ArrayList<Person> persons;
 
     /**
      * 当客户端绑定到该服务时调用
@@ -27,6 +27,7 @@ public class IRemoteService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        persons = new ArrayList<>();
         return iBinder;
     }
 
@@ -36,6 +37,12 @@ public class IRemoteService extends Service {
         public int add(int num1, int num2) throws RemoteException {
             Log.e("tag", "收到的两个参数为："+num1+"和"+num2);
             return num1+num2;
+        }
+
+        @Override
+        public List<Person> addPerson(Person person) throws RemoteException {
+            persons.add(person);
+            return persons;
         }
     };
 }
