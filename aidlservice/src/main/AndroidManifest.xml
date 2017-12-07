@@ -15,6 +15,16 @@
         <service android:name=".IRemoteService"
             android:exported= "true"
             android:process=":remote"/>
+
+        <service
+            android:name=".MessengerService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.zhy.aidl.calc"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
