@@ -10,12 +10,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Description:
- * User: chenzheng
- * Date: 2017/1/6 0006
- * Time: 11:41
- */
 public class IRemoteService extends Service {
     private ArrayList<Person> persons;
 

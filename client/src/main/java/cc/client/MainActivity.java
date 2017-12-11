@@ -26,7 +26,7 @@ import cc.aidlservice.IMyAidl;
 public class MainActivity extends AppCompatActivity {
     private static final String  TAG = "client";
     EditText edit1,edit2,edit_res;
-    Button btn_res,btn_person,btn_messenger;
+    Button btn_res,btn_person,btn_messenger,btn_aidl;
     private LinearLayout mLyContainer;
     private IMyAidl iImoocAidl;
     private static final int MSG_SUM = 0x110;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             Log.d(TAG," onServiceConnected service---" );
             //拿到了远程的服务
             iImoocAidl = IMyAidl.Stub.asInterface(service);
-//            iImoocAidl = (IImoocAidl) service;
             try {
                 service.linkToDeath(deathRecipient,0);
             } catch (RemoteException e) {
@@ -83,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         btn_res = (Button) findViewById(R.id.btn_res);
         btn_person = (Button) findViewById(R.id.btn_person);
         btn_messenger = (Button) findViewById(R.id.btn_messenger);
+        btn_aidl = (Button) findViewById(R.id.btn_aidl);
         mTvState = (TextView) findViewById(R.id.text_state);
         mLyContainer = (LinearLayout) findViewById(R.id.activity_main);
 
@@ -162,6 +162,13 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+            }
+        });
+
+        btn_aidl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,BookManagerActivity.class));
             }
         });
     }

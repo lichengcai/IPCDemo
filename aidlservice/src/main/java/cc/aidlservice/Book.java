@@ -1,24 +1,25 @@
-package cc.ipcdemo;
+package cc.aidlservice;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by lichengcai on 2017/12/4.
+ * Created by lichengcai on 2017/12/7.
  */
 
 public class Book implements Parcelable {
-    private int bookId;
-    private String bookName;
 
-    public Book(int bookId, String bookName) {
-        this.bookId = bookId;
+    private String bookName;
+    private int bookId;
+
+    public Book(String bookName, int bookId) {
         this.bookName = bookName;
+        this.bookId = bookId;
     }
 
     protected Book(Parcel in) {
-        bookId = in.readInt();
         bookName = in.readString();
+        bookId = in.readInt();
     }
 
     public static final Creator<Book> CREATOR = new Creator<Book>() {
@@ -33,6 +34,22 @@ public class Book implements Parcelable {
         }
     };
 
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -40,7 +57,15 @@ public class Book implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(bookId);
         dest.writeString(bookName);
+        dest.writeInt(bookId);
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookName='" + bookName + '\'' +
+                ", bookId=" + bookId +
+                '}';
     }
 }

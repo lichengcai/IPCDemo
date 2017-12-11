@@ -14,7 +14,13 @@
 
         <service android:name=".IRemoteService"
             android:exported= "true"
-            android:process=":remote"/>
+            android:enabled="true"
+            />
+
+        <service android:name=".BookManagerService"
+            android:exported= "true"
+            android:enabled="true"
+            />
 
         <service
             android:name=".MessengerService"
