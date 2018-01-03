@@ -12,6 +12,7 @@
         </activity>
 
         <activity android:name=".BookManagerActivity"/>
+
     </application>
 
 </manifest>

@@ -11,6 +11,9 @@
             <option value="$PROJECT_DIR$/aidlservice" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/client" />
+            <option value="$PROJECT_DIR$/providerdemo" />
+            <option value="$PROJECT_DIR$/socketclient" />
+            <option value="$PROJECT_DIR$/socketservice" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -1,1 +1,1 @@
-include ':app', ':client', ':aidlservice'
+include ':app', ':client', ':aidlservice', ':providerdemo', ':socketservice', ':socketclient'

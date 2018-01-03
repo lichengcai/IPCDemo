@@ -6,6 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/aidlservice/aidlservice.iml" filepath="$PROJECT_DIR$/aidlservice/aidlservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/providerdemo/providerdemo.iml" filepath="$PROJECT_DIR$/providerdemo/providerdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/socketclient/socketclient.iml" filepath="$PROJECT_DIR$/socketclient/socketclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/socketservice/socketservice.iml" filepath="$PROJECT_DIR$/socketservice/socketservice.iml" />
     </modules>
   </component>
 </project>
